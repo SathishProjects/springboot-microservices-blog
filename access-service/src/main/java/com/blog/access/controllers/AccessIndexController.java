@@ -1,6 +1,5 @@
 package com.blog.access.controllers;
 
-
 import java.util.concurrent.locks.Lock;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +16,6 @@ import com.blog.commonutill.config.redis.CustomRedisLockService;
 import com.blog.commonutill.config.redis.LockObject;
 
 import lombok.extern.slf4j.Slf4j;
-
 
 @Slf4j
 @RefreshScope
@@ -41,7 +39,7 @@ public class AccessIndexController {
 
 	@GetMapping
 	public String index() throws InterruptedException {
-		// simple lock
+// 		simple lock
 		Lock svcLock = serviceLockRegistry.obtain("test-lock-1");
 		svcLock.lockInterruptibly();
 		svcLock.unlock();
